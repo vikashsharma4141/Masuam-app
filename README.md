@@ -1,68 +1,106 @@
-# CodeIgniter 4 Application Starter
+# 🌦️ Mausam App - Weather App using CodeIgniter 4 & OpenWeather API
 
-## What is CodeIgniter?
+**Mausam App** is a clean and simple weather web application built using **CodeIgniter 4**, which allows users to get real-time weather information of any city using the **OpenWeatherMap API**.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 🔥 Features
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- 🔍 Search current weather by city name
+- 🌐 Real-time data from OpenWeatherMap API
+- 🌡️ Weather details: temperature, humidity, condition, wind speed, etc.
+- 🎯 Fully responsive UI using Bootstrap
+- 💾 API key handled securely via `.env`
+- ⚙️ Clean MVC structure (CI4)
+- ⚠️ Error handling for invalid city searches or failed requests
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+---
 
-## Installation & updates
+## 🧰 Technologies Used
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- ✅ PHP (CodeIgniter 4)
+- ✅ OpenWeatherMap API
+- ✅ HTML, CSS, 
+- ✅ JavaScript (optional for AJAX)
+- ✅ JSON (for API responses)
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+---
 
-## Setup
+## 📦 Setup Instructions
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### 1️⃣ Clone the Repository
 
-## Important Change with index.php
+```bash
+git clone https://github.com/vikashsharma4141/Masuam-app.git
+cd Masuam-app
+2️⃣ Install Dependencies
+bash
+Copy
+Edit
+composer install
+3️⃣ Configure Environment
+Create a copy of the env file:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+bash
+Copy
+Edit
+cp env .env
+Then set your base URL and OpenWeather API key:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+env
+Copy
+Edit
+app.baseURL = 'http://localhost:8080/'
+weather.apiKey = your_openweather_api_key_here
+4️⃣ Run the App
+bash
+Copy
+Edit
+php spark serve
+Visit in your browser:
+📍 http://localhost:8080
 
-**Please** read the user guide for a better explanation of how CI4 works!
+🛠 How It Works
+The user enters a city name
 
-## Repository Management
+Controller sends request to https://api.openweathermap.org/data/2.5/weather
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Data is retrieved, processed, and displayed in a styled view
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+If an invalid city is entered, a proper error message is shown
 
-## Server Requirements
+🌍 OpenWeather API Info
+[Website: https://openweathermap.org/api]https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units=metric
 
-PHP version 8.1 or higher is required, with the following extensions installed:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Make sure to sign up and get your API Key in controller 
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+Example endpoint used:
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+bash
+Copy
+Edit
+https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units=metric
+📁 Folder Structure
+pgsql
+Copy
+Edit
+app/
+ ├── Controllers/
+ │    └── Weather.php
+ ├── Models/
+ │    └── WeatherModel.php
+ ├── Views/
+ │    └── weather/
+ └── Config/
+      └── Routes.php
+public/
+ └── assets/
+.env
+composer.json
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+
+👨‍💻 Developed By
+Vikash Sharma
+📍 Frontend + PHP Developer
+🔗 LinkedIn
